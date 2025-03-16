@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="500" height="500" viewBox="0 0 500 500">
+  <rect x="0" y="0" width="500" height="500" fill="white"/>
+  <g transform="scale(10)">
+    <image x="0" y="0" width="50" height="50" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAG1BMVEUAAAAoVpsnVZonVZonVZonVZonVZonVZonVZoQYtGdAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAQklEQVQ4jWNgQAX8DAz8DAz8DAz8DAz8DAz8DAz8DAz8DAz8DAz8DAz8DAz8DAz8DAz8DAz8DAz8DAz8DAz8DAw="/>
+  </g>
+</svg>

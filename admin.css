@@ -1,0 +1,716 @@
+/* Modern 3D Admin Theme */
+:root {
+    --primary-color: #4285f4;
+    --secondary-color: #34a853;
+    --warning-color: #fbbc05;
+    --danger-color: #ea4335;
+    --background-color: #f5f5f5;
+    --card-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    --hover-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    --card-radius: 12px;
+    --base-font-size: 16px;
+    --font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: var(--background-color);
+    font-family: var(--font-family);
+    font-size: var(--base-font-size);
+    transition: all 0.3s ease;
+}
+
+/* Dashboard Stats Cards */
+.stats-card {
+    background: white;
+    border-radius: var(--card-radius);
+    padding: 24px;
+    margin: 16px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px) rotateX(5deg);
+    box-shadow: var(--hover-shadow);
+}
+
+.stat-value {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 16px 0;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.status-badge.status-pending {
+    background: var(--warning-color);
+    color: white;
+}
+
+.status-badge.status-completed {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.status-badge.status-cancelled {
+    background: var(--danger-color);
+    color: white;
+}
+
+/* Action Buttons */
+.mdl-button {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mdl-button--raised {
+    box-shadow: var(--card-shadow);
+}
+
+.mdl-button--raised:hover {
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+/* Tables */
+.mdl-data-table {
+    width: 100%;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    border: none;
+}
+
+.mdl-data-table thead {
+    background: var(--primary-color);
+}
+
+.mdl-data-table th {
+    color: white;
+    font-weight: 500;
+}
+
+.mdl-data-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.mdl-data-table tbody tr:hover {
+    background: rgba(0, 0, 0, 0.04);
+    transform: scale(1.01);
+}
+
+/* Tabs */
+.mdl-layout__tab-bar {
+    background: white;
+    box-shadow: var(--card-shadow);
+    border-radius: 8px;
+    margin: 16px;
+}
+
+.mdl-layout__tab {
+    color: #666;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.mdl-layout__tab.is-active {
+    color: var(--primary-color);
+}
+
+.mdl-layout__tab-panel {
+    padding: 24px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.mdl-layout__tab-panel.is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Cards */
+.mdl-card {
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.mdl-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.mdl-card__title {
+    background: var(--primary-color);
+    color: white;
+    padding: 24px;
+}
+
+.mdl-card__supporting-text {
+    padding: 24px;
+    color: #666;
+}
+
+/* Animations */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.stat-updated {
+    animation: pulse 1s ease;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Dialog */
+.mdl-dialog {
+    border-radius: var(--card-radius);
+    box-shadow: var(--hover-shadow);
+}
+
+.mdl-dialog__title {
+    color: var(--primary-color);
+}
+
+/* Snackbar */
+.mdl-snackbar {
+    background: #323232;
+    border-radius: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stats-card {
+        margin: 8px;
+        padding: 16px;
+    }
+    
+    .stat-value {
+        font-size: 2em;
+    }
+    
+    .mdl-layout__tab-bar {
+        margin: 8px;
+    }
+    
+    .mdl-layout__tab-panel {
+        padding: 16px;
+    }
+}
+
+/* Theme Effects */
+body:not(.disable-animations) * {
+    transition: all 0.3s ease;
+}
+
+body:not(.disable-3d-effects) .mdl-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+body:not(.disable-blur-effects) .mdl-dialog,
+body:not(.disable-blur-effects) .mdl-card {
+    backdrop-filter: blur(10px);
+}
+
+/* Color Picker Styles */
+.color-picker {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: var(--card-radius);
+    cursor: pointer;
+}
+
+.color-picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.color-picker::-webkit-color-swatch {
+    border: none;
+    border-radius: var(--card-radius);
+}
+
+/* File Upload Styles */
+.file-upload-container {
+    margin: 16px 0;
+}
+
+.file-upload-container img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: var(--card-radius);
+    margin-top: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+#qr-preview, #logo-preview {
+    position: relative;
+    display: inline-block;
+    margin-top: 16px;
+}
+
+#qr-preview button, #logo-preview button {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--danger-color);
+    color: white;
+}
+
+/* Settings Forms */
+.settings-section {
+    margin-bottom: 32px;
+}
+
+.settings-section h5 {
+    color: var(--primary-color);
+    font-size: 1.1em;
+    margin: 0 0 16px 0;
+    font-weight: 500;
+}
+
+/* Switch Styles */
+.mdl-switch.is-checked .mdl-switch__track {
+    background: rgba(66, 133, 244, 0.5);
+}
+
+.mdl-switch.is-checked .mdl-switch__thumb {
+    background: var(--primary-color);
+}
+
+/* Select Styles */
+.mdl-textfield__input[type="select"] {
+    background: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Card Styles */
+.mdl-card {
+    width: 100%;
+    margin-bottom: 24px;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+}
+
+.mdl-card__title {
+    background: var(--primary-color);
+    color: white;
+    padding: 24px;
+}
+
+.mdl-card__supporting-text {
+    padding: 24px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+/* Button Styles */
+.mdl-button {
+    border-radius: 4px;
+    text-transform: none;
+    font-weight: 500;
+}
+
+.mdl-button--raised.mdl-button--colored {
+    background: var(--primary-color);
+    color: white;
+}
+
+.mdl-button--raised.mdl-button--accent {
+    background: var(--secondary-color);
+    color: white;
+}
+
+/* Form Field Styles */
+.mdl-textfield {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.mdl-textfield__label {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.mdl-textfield__input {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label,
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label {
+    color: var(--primary-color);
+}
+
+/* Grid Layout */
+.mdl-grid {
+    padding: 8px;
+    justify-content: flex-start;
+}
+
+.mdl-cell {
+    margin: 8px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .mdl-grid {
+        padding: 4px;
+    }
+    
+    .mdl-cell {
+        margin: 4px;
+    }
+    
+    .mdl-card__supporting-text {
+        padding: 16px;
+    }
+    
+    .file-upload-container img {
+        max-width: 150px;
+        max-height: 150px;
+    }
+}
+
+/* Animation Classes */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-in {
+    animation: slideIn 0.3s ease forwards;
+}
+
+/* Status Badge Colors */
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.status-badge.status-pending {
+    background: var(--warning-color);
+    color: white;
+}
+
+.status-badge.status-completed {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.status-badge.status-cancelled {
+    background: var(--danger-color);
+    color: white;
+}
+
+/* Dialog Styles */
+.mdl-dialog {
+    border-radius: var(--card-radius);
+    box-shadow: var(--hover-shadow);
+}
+
+.mdl-dialog__title {
+    color: var(--primary-color);
+}
+
+/* Snackbar Styles */
+.mdl-snackbar {
+    background: #323232;
+    border-radius: 4px;
+}
+
+/* Table Styles */
+.mdl-data-table {
+    width: 100%;
+    white-space: normal;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+}
+
+.mdl-data-table th {
+    background: var(--primary-color);
+    color: white;
+}
+
+.mdl-data-table tbody tr:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Original Styles */
+.mdl-layout__header {
+    background: linear-gradient(135deg, #12123a, #0a0a20);
+    box-shadow: 0 4px 20px rgba(0, 255, 217, 0.2);
+}
+
+.mdl-layout__tab-bar {
+    background: linear-gradient(90deg, #12123a, #0a0a20);
+}
+
+.mdl-layout__tab-bar-button {
+    background: transparent !important;
+}
+
+.mdl-layout__tab {
+    color: #ffffff !important;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.mdl-layout__tab:hover {
+    opacity: 1;
+}
+
+.mdl-layout__tab.is-active {
+    opacity: 1;
+    color: #00ffd9 !important;
+}
+
+.mdl-card {
+    background: #12123a;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 255, 217, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mdl-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 255, 217, 0.2);
+}
+
+.mdl-card__title {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mdl-card__title-text {
+    color: #00ffd9;
+    font-weight: 500;
+}
+
+.mdl-data-table {
+    background: #12123a;
+    color: #ffffff;
+    border: none;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mdl-data-table th {
+    background: rgba(0, 0, 0, 0.2);
+    color: #00ffd9;
+    font-weight: 500;
+}
+
+.mdl-data-table td {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.mdl-button--raised {
+    background: linear-gradient(135deg, #00ffd9, #ff0055);
+    color: #0a0a20;
+    border-radius: 25px;
+    padding: 0 24px;
+    height: 40px;
+    line-height: 40px;
+    text-transform: none;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.mdl-button--raised:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mdl-button--icon {
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #00ffd9;
+    transition: all 0.3s ease;
+}
+
+.mdl-button--icon:hover {
+    background: #00ffd9;
+    color: #0a0a20;
+    transform: scale(1.1);
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.status-pending {
+    background: rgba(255, 166, 0, 0.2);
+    color: #ffa600;
+}
+
+.status-processing {
+    background: rgba(0, 150, 255, 0.2);
+    color: #0096ff;
+}
+
+.status-completed {
+    background: rgba(0, 255, 0, 0.2);
+    color: #00ff00;
+}
+
+.status-cancelled {
+    background: rgba(255, 0, 0, 0.2);
+    color: #ff0000;
+}
+
+.mdl-dialog {
+    background: #12123a;
+    color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.mdl-dialog__title {
+    color: #00ffd9;
+}
+
+.mdl-dialog__content {
+    color: #ffffff;
+}
+
+.mdl-textfield__input {
+    color: #ffffff !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.mdl-textfield__label {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label,
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label {
+    color: #00ffd9 !important;
+}
+
+.mdl-checkbox__box-outline {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.mdl-checkbox.is-checked .mdl-checkbox__box-outline {
+    border-color: #00ffd9 !important;
+}
+
+.mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
+    background-color: #00ffd9 !important;
+}
+
+.mdl-snackbar {
+    background: #12123a;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.order-details {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+
+.order-details p {
+    margin: 8px 0;
+}
+
+.order-details strong {
+    color: #00ffd9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.mdl-card, .mdl-data-table, .mdl-dialog {
+    animation: fadeIn 0.5s ease forwards;
+}

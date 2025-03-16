@@ -1,0 +1,12 @@
+{
+  "name": "bgmi-uc-store",
+  "version": "1.0.0",
+  "description": "BGMI UC Store with Admin Panel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
